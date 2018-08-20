@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta Author="Mayuri Mylarisetti">
+  <title> Project 2 | Work</title>
+  <link rel="stylesheet" href="project2.css">
+
+  <script>
+  function myfun1() {
+    var x = document.getElementById("iframe").setAttribute("src", "lab8/lab8.html");
+  }
+
+  function myfun2() {
+    var x = document.getElementById("iframe").setAttribute("src","lab9/lab9.html");
+  }
+
+  function myfun3() {
+    var x = document.getElementById("iframe").setAttribute("src","lab10/lab10.html");
+  }
+
+  function myfun4() {
+    var x = document.getElementById("iframe").setAttribute("src","lab11/lab11.html");
+  }
+  </script>
+</head>
+
+<body>
+  <nav>
+    <div class="topnavigationbar">
+      <span id="logo-name">MAYURI MYLARISETTI</span>
+      <a href="contact.html">Contact</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+  <div id="workcontent">
+    <div class="main" id="main">
+      <strong> If you click on labs, Content displays below</strong>
+      <iframe id="iframe" src="work.jpg" width="850px" height="480px"></iframe>
+    </div>
+    <div id="extras">
+      <h2>Java Script labs </h2>
+      <ol class="labs">
+        <li><a class="demo" href="#" onclick="myfun1()">Lab8-Regular Expressions and APIs</a></li>
+        <br>
+        <li><a class="demo" href="#" onclick="myfun2()">Lab9-Introduction to Javascript</a></li>
+        <br>
+        <li><a class="demo" onclick="myfun3()" href="#">Lab10-Javascript Objects and Events</a></li>
+        <br>
+        <li><a class="demo" onclick="myfun4()" href="#">Lab11-Javascript DOM and jQuery</a></li>
+
+      </ol>
+    </div>
+  </div>
+  <div id="footer">
+    <p>
+      <h4>Copyright © Mayuri Mylarisetti</h4>
+    </p>
+  </div>
+</body>
+</html>

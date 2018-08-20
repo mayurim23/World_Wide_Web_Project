@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset ="UTF-8">
+  <meta Author = "Mayuri Mylarisetti">
+  <title>  lab9 Assignment </title>
+</head>
+<body>
+<h2>JavaScript Function and if/else statement</h2>
+<p>This example calls a function to check whether the number is odd or even</p>
+<p id="demo"></p>
+<h2>JavaScript Objects</h2>
+<p id="demo1"></p>
+<h2>JavaScript Arrays</h2>
+<p>This example creates Array and for loop</p>
+<p id="demo2"></p>
+<h2>JavaScript string literal</h2>
+<p id="demo7"></p>
+<h2>JavaScript boolean literal</h2>
+<p id="demo8"></p>
+<h2>JavaScript Switch</h2>
+<p>This example creates Switch case</p>
+<p id="demo3"></p>
+<h2>JavaScript While loop</h2>
+<p id="demo4"></p>
+<h2>JavaScript for each loop</h2>
+<p id="demo5"></p>
+<h2>JavaScript for of loop</h2>
+<p id="demo6"></p>
+
+<script>
+var b = Boolean(657>6794);
+document.getElementById("demo8").innerHTML =b;
+var s1 = 'This is the first line <br> This is the second line';
+document.getElementById("demo7").innerHTML = s1;
+var colors=['Red','Blue','Green'];
+for (var a of colors){
+  console.log(a);
+}
+document.getElementById("demo6").innerHTML += a + "<br>";
+colors.forEach(function(e){
+  console.log(e);
+  document.getElementById("demo5").innerHTML += e + "<br>";
+});
+
+let k = 0;
+while (k < 5) {
+    document.getElementById("demo4").innerHTML += k + "<br>";
+    k++;
+}
+var person = {name:"Mayuri", masters:"Data Science", University:"DU"};
+document.getElementById("demo1").innerHTML = person.masters;
+var persons = ["Mayuri","Prashanth","Maya","Nani"];
+var list = "";
+var j;
+for (j = 0; j < persons.length; j++) {
+    list += persons[j] + "<br>";
+  }
+document.getElementById("demo2").innerHTML = list;
+var i=10;
+switch (i) {
+    case 0:i="entered the number 0"
+    break;
+    case 1: i="entered the number 1"
+    break;
+    case 2: i="entered the number 2"
+    break;
+    case 3:
+    case 4:
+    case 5:
+        i = "entered number is either 3 or 4 or 5";
+        break;
+
+    default:
+        i = "Number is above 5";
+        break;
+}
+document.getElementById("demo3").innerHTML = i;
+function isEven(n) {
+
+if(n%2==0)
+{
+
+  return "number is Even ";
+  //System.out.println("number is even");
+  console.log("n is even"+n);
+}
+else {
+  return "number is Odd";
+console.log("n is odd"+n);
+}
+}
+document.getElementById("demo").innerHTML = isEven(90);
+
+</script>
+
+</body>
+</html>

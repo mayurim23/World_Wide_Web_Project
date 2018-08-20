@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Success</title>
+    <style>
+    body{
+      background-color: #ff8100;
+      text-align: center;
+      background-image: url(success.png);
+      background-repeat: no-repeat;
+    }
+    div{
+      margin-top: 200px;
+      text-align: center;
+      margin-left: 200px;
+    }
+    h1{
+      color:#ff8100;
+    }
+    @keyframes colorchange {
+      0%{color: maroon;}
+      20%{color: lightgray;}
+      40%{color: green;}
+      60%{color: white;}
+        80%{color: blue;}
+        100%{color: maroon;}
+    }
+    #registration{
+      animation-name: colorchange;
+      animation-duration: 7s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+}
+
+    </style>
+  </head>
+  <body>
+    <div>
+    <h1 id="registration">Thank You ! I will get in touch with you soon!</h1>
+  </div>
+  </body>
+</html>

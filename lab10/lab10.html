@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta Author="Mayuri Mylarisetti">
+  <title> lab10 Assignment </title>
+</head>
+
+<body>
+  <ol>
+    <li>
+      <h3>location browser object</h3></li>
+    <p id="demo"></p>
+    <li>
+      <h3>Window method Alert</li>
+   <button onclick="alertOnclickExample()">alert</button>
+   <li><h3>Click on this text to see event type as method</h3></li>
+    <p id="demo2"></p>
+    <li>
+      <h3>Event type as html attribute (Text changes to upper case)</h3></li>
+    Username:<input type="text" id="username" onchange="changeFunction()">
+    <li>
+      <h3>Event types via addEventListener() method </h3></li>
+    <button id="mouse">Mouseup</button>
+    <p id="demo3"></p>
+    <li><h3>Enter gender below to add a gender property to Profesor Object(dynamic field)</h3>
+    <input name="textbox1" id="gender" type="text" value="gender"/>
+    <input type ="button"
+           onclick="setDynamicProperty(document.getElementById('gender').value)"
+           value="sumbit" />
+      <p id="before"></p>
+      <p id="after"></p>
+   </li>
+  </ol>
+  <script>
+    //using constructor function
+    function Student(name, age, skills, studentDetails) {
+      this.name = name;
+      this.age = age;
+      this.skills = skills;
+      this.studentDetails = studentDetails;
+    }
+    var student1 = new Student({
+        first: "Mayuri",
+        last: "Mylarisetti"
+      }, 26, ["C", "Java", "HTML5", "javascript"],
+      function() {
+        var view = "My name is " + this.name.first + " and I am " + this.age + " years old";
+        console.log(view);
+      });
+    student1.studentDetails();
+
+    //prototype object to modify constructor function
+    Student.prototype.major = "Data Science";
+    //creting object using the modified constructor
+    var student2 = new Student({
+        first: 'Prashanth',
+        last: 'Vusirikapalli'
+      }, 27, ["Angular JS", "Hadoop", "Java"],
+      function() {
+        var view1 = "My name is " + this.name.first + " and I am doing MS in " + this.major + " and I am " + this.age + " years old";
+        console.log(view1);
+      });
+
+    student2.studentDetails();
+    //creating object using object.create
+    var professor = {
+      name: "Dan",
+      course: "www",
+      displayCourse: function() {
+
+        console.log(this.course);
+      }
+    };
+
+    var professor1 = Object.create(professor);
+    professor1.displayCourse();
+    var professor2 = Object.create(professor);
+    professor2.course = "Science";
+    professor2.displayCourse();
+    //using window methods
+    document.getElementById("demo").innerHTML = "URL of this page is:<br>" + window.location;
+
+    function alertOnclickExample() {
+      alert("This is the example for alert and onclick");
+    }
+//setting Dynamic value
+    function setDynamicProperty(value) {
+      console.log(professor);
+      professor['gender'] = value;
+      console.log(professor);
+    }
+    //using event type as html attribute
+    window.onclick = function() {
+      document.getElementById("demo2").innerHTML = "Welcome to www session";
+    }
+    //using event type as method
+    function changeFunction() {
+      var text;
+      text = document.getElementById("username");
+      text.value = text.value.toUpperCase();
+    }
+    //using eventlistener
+    var x = document.getElementById("mouse");
+    x.addEventListener("mouseup", myFunction);
+
+    function myFunction() {
+
+      document.getElementById("demo3").innerHTML += "Mouse up event used";
+    }
+  </script>
+</body>
+
+</html>

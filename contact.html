@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta Author="Mayuri Mylarisetti">
+  <title> Project 2 | Contact</title>
+  <link rel="stylesheet" href="project2.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script>
+  $(function(){
+    function submitForm(val) {
+
+      var $myform = $(val);
+      var $sub= $myform.find('input[type="submit"]');
+      var $inputs = $myform.find('input:required');
+
+
+      $sub.attr('disabled', 'disabled');
+
+      $inputs.keyup(function () {
+
+        $myform.data('empty', 'false');
+
+        $inputs.each(function() {
+          if ($(this).val() === '') {
+            $myform.data('empty', 'true');
+          }
+        });
+
+        if ($myform.data('empty') === 'true') {
+          $sub.attr('disabled', 'disabled').attr('title', 'fill all required fields');
+        } else {
+          $sub.removeAttr('disabled').attr('title', 'click to submit');
+        }
+      });
+    }
+    submitForm('#myform');
+  });
+  function formValidation()
+  {
+    if(validateFname(fname))
+    {
+      if(validateLname(lname))
+      {
+        if(validateMail(email))
+        {
+          if(validateTel(tel))
+          {
+
+          }
+
+        }
+      }
+    }
+    return false;
+  }
+  function validateFname(fname)
+  {
+
+    var name= document.myform.fname;
+    var alpha = /^[A-Za-z]+$/;
+    if(name.value == "")
+    {
+      alert("Please enter your firstname");
+      name.focus();
+      return false;
+    }
+    else if (name.value.match(alpha)) {
+      return true;
+    }
+
+    else
+    {
+      alert("Name must have alphabet characters only");
+      name.focus();
+      return false;
+    }
+  }
+  function validateLname(lname)
+  {
+
+    var name= document.myform.lname;
+    var alpha = /^[A-Za-z]+$/;
+    if(name.value == "")
+    {
+      alert("Please enter your lastname");
+      name.focus();
+      return false;
+    }
+    else if (name.value.match(alpha)) {
+      return true;
+    }
+
+    else
+    {
+      alert("Name must have alphabet characters only");
+      name.focus();
+      return false;
+    }
+  }
+  function validateMail(email)
+  {
+    var email=document.myform.email;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(email.value == "")
+    {
+      alert("Please enter email");
+      email.focus();
+      return false;
+    }
+    else if(email.value.match(mailformat))
+    {
+      return true;
+    }
+    else
+    {
+      alert("You have entered an invalid email address");
+      email.focus();
+      return false;
+    }
+  }
+  function validateTel(tel)
+  {
+    var tel=document.myform.tel;
+    var mobileformat= /^[0-9]{10}$/;
+    if(tel.value=="")
+    {
+      alert("Please enter mobile number");
+      tel.focus();
+      return false;
+    }
+    else if(tel.value.match(mobileformat))
+    {
+
+      var regfile = new FilePathResult("registration.html", "text/html");
+      return regfile;
+
+    }
+    else
+    {
+      alert("Enter valid 10 digit mobile number");
+      tel.focus();
+      return false;
+    }
+
+  }
+  </script>
+</head>
+<body onload="document.myform.name.focus();">
+  <nav>
+    <div class="topnavigationbar">
+      <span id="logo-name">MAYURI MYLARISETTI</span>
+      <a href="contact.html">Contact</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+  <div class="content">
+    <h2>My Contact</h2>
+    <p id="icon"><i class="fa fa-envelope"></i> mayurim26@gmail.com</p>
+    <p id="icon"><i class="fa fa-mobile"></i> 916-869-2329</p>
+    <form name="myform" id="myform" action="registration.html"   method="POST" onsubmit="return formValidation();">
+      <fieldset>
+        <legend>
+          <h2>If you want me to contact you</h2></legend>
+          <table align="center">
+            <tr>
+              <th align="left">First Name*</th>
+              <td><input type="text" id="fname" name="fname" title="Must contain only alphabets" placeholder="Required field" required></td>
+            </tr>
+            <tr>
+              <th align="left">Last Name*</th>
+              <td><input type="text" id="lname" name="lname" title="Must contain only alphabets" placeholder="Required field" required
+                onclick="return validateFname();"></td>
+              </tr>
+              <tr>
+                <th align="left">Email Address*</th>
+                <td><input type="email" id="email" name="email" title="Must be valid email" placeholder="Required field" required
+                  onclick="return validateLname();"></td>
+                </tr>
+                <tr>
+                  <th align="left">Mobile No*</th>
+                  <td><input type="tel" id="tel" name="tel"  title="Enter digits only" placeholder="Required field" required
+                    onclick="return validateMail();"></td>
+                  </tr>
+                  <tr>
+
+                    <th align="left">About you </th>
+                    <td>
+                      <textarea name="About" maxlength="300" placeholder="Not more than 300 characters(optional field)"
+                      onclick="return validateTel();">
+                    </textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">Country</th>
+                  <td>
+                    <select name="country">
+                      <option selected ="" value="Default">Please select country</option>
+                      <option>Australia</option>
+                      <option>Canada</option>
+                      <option>India</option>
+                      <option>Russia</option>
+                      <option>USA</option>
+                      <option>Other</option>
+                    </select>
+
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left">Gender </th>
+                  <td>
+                    <label>Male<input type="radio" name="gender"></label>
+                    <label>Female<input type="radio" name="gender"></label>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Contact Preferences</th>
+                  <td>
+                    <label>Call <input type="checkbox" id="call" name="call"></label>
+                    <label>Text <input type="checkbox" id="Text" name="Text"></label>
+                    <label>E-Mail<input type="checkbox" id="E-mail" name="E-mail"</label>
+                  </td>
+                </tr>
+              </table>
+              <br>
+              <div id="subres">
+                <input type="submit" name="submit" value="SUBMIT" >
+                <input type="reset" name="RESET" value="RESET">
+              </div>
+            </fieldset>
+          </form>
+
+        </div>
+        <div id="footer">
+          <p>
+            <h4>Copyright © Mayuri Mylarisetti</h4>
+          </p>
+        </div>
+      </body>
+
+      </html>

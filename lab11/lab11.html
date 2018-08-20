@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta Author="Mayuri Mylarisetti">
+  <title> lab11 Assignment </title>
+  <style>
+  .yellow{
+    background-color: yellow;
+  }
+  .redtext{
+    color: red;
+  }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  //jquery selectors
+    $("#jqb1").click(function(){
+        $("h1").addClass("yellow");
+        $("#jq1").addClass("redtext");
+    });
+
+//getElementById
+window.onclick = function() {
+    document.getElementById("demo1").innerHTML = "Updated the content of Paragraph";
+  }
+  //getElementsByTagName
+  $("#jqb3").click(function(){
+    var x = document.getElementsByTagName("input");
+    for(var i=0;i<x.length;i++)
+    {
+      x[i].setAttribute("title","newtitle"+i);
+      document.getElementById("demo2").innerHTML+="</br>"+x[i].value +"</br>";
+    }
+
+});
+//getElementsByClassName
+$("#jqb4").click(function(){
+    var classexample = document.getElementsByClassName("demo3");
+    var a=["header","para","label","div"];
+    for(var i=0;i<classexample.length;i++)
+    {
+      classexample[i].innerHTML = "Changed " +a[i] +" element";
+    }
+});
+//querySelectorAll
+$("#jqb5").click(function(){
+    var y = document.querySelectorAll(".demo3");
+    y[0].style.backgroundColor="cyan";
+    y[1].style.color = "red";
+});
+//createElement and appendChild
+$("#jqb6").click(function(){
+var newlist=document.createElement("li");
+var append=document.createTextNode("New element in the list appended");
+newlist.appendChild(append);
+document.getElementById("oldlist").appendChild(newlist);
+});
+//removeChild
+$("#jqb7").click(function(){
+  var parent=document.getElementById("parent");
+  var remove=document.getElementById("remove");
+  parent.removeChild(remove);
+});
+//replaceChild
+$("#jqb8").click(function(){
+var parent1=document.getElementById("parent1");
+var replace=document.getElementById("replace");
+var newimg=document.createElement("img");
+newimg.setAttribute("src","DU_logo.png");
+parent1.replaceChild(newimg,replace);
+});
+//insertBefore
+$("#jqb9").click(function(){
+  var parent2=document.getElementById("parent2");
+  var insert=document.getElementById("insert");
+  var newpara=document.createElement("p");
+  var textnode=document.createTextNode("Hello");
+  newpara.appendChild(textnode);
+  parent2.insertBefore(newpara,insert);
+});
+});
+</script>
+</head>
+<body>
+  <h3>Use of getElementById</h3>
+  <p id="demo1">Click anywhere on the screen to change this paragraph</p>
+  <hr>
+  <h3>Use of getElementsByTagName</h3>
+  <label for="firstname">First Name:</label>
+  <input type="text" id="firstname" name="firstname" title="firstname" placeholder="First name">
+  <br>
+  <br>
+  <label for="Lastname">Last Name:</label>
+  <input type="text" id="Lastname" name="lastname" title="lastname" placeholder="Last name">
+  <br>
+  <br>
+  <!--INPUT TYPE:EMAIL -->
+  <label for="email">Email Address:</label>
+  <input type="email" id="email" name="email" title="email">
+  <br>
+  <br>
+  <!--INPUT TYPE:TEL -->
+  <label for="Telephone">Mobile No: </label>
+  <input type="tel" id="Telephone" name="tel" title="tel">
+  <br>
+  <br>
+  <p id="demo2">Click below to update the title attributes and retrieve collection of elements
+  using setAttribute and getElementsByTagName respectively.
+  <br>
+  <br>
+   <button id="jqb3">Click here</button>
+  <hr>
+  <h3>Use of getElementsByClassName </h3>
+    <ol id="oldlist">
+      <li>
+        <h4 class="demo3"> This is the header element </h3></li>
+<li><p class="demo3">Para element </p></li>
+<li><label class="demo3">InputElement:
+<input type="text" name="username" id="username">
+</label> </li>
+<br>
+<li><div class="demo3">This is the div element </div></li>
+<br>
+</ol>
+ <p>Click below to Update the text of all the elements with class name demo3</p>
+ <button id="jqb4">Click here</button>
+<hr>
+<h3>Use of querySelectorAll() Method </h3>
+<p>Click below to add text color red to the above para element and backgroundColor cyan to header element with class name demo3</p>
+<button id="jqb5">Click here</button>
+<hr>
+<h3>Use of appendChild and createElement Method </h3>
+<p>Click below to Append an item to the end of the above ordered list</p>
+<button id="jqb6">Click here</button>
+<hr>
+<h3>Use of removeChild </h3>
+<div id="parent">
+  <div id ="remove">
+<p>Click below to Remove me</p>
+</div>
+</div>
+<button id="jqb7">Click here</button>
+<hr>
+<h3>Use of replaceChild and createElement Method </h3>
+<div id="parent1">
+  <div id="replace"><img src="jntulogo.jpg"></div>
+</div>
+  <p>Click below to replace the above image with DU logo</p>
+<button id="jqb8">Click here</button>
+  <hr>
+  <h3>Use of insertBefore and createElement Method </h3>
+  <div id="parent2">
+    <div id="insert">
+    <p>Welcome to WWW Programming </p>
+    </div>
+  </div>
+  <p>Click below to insert "Hello" text before the para </p>
+<button id="jqb9">Click here</button>
+<hr>
+<h1>This is example for jquery </h1>
+<p id="jq1">This is another element for jquery </p>
+<p>Click below button to change the heading background color to yellow and para text color to red</p>
+<button id="jqb1">Click here</button>
+
+</body>
+</html>
